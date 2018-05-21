@@ -1,5 +1,5 @@
 
-package com.toyberman;
+package com.toyberman.versionCheck;
 
 import android.content.pm.PackageManager;
 
