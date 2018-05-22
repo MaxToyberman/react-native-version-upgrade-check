@@ -34,20 +34,20 @@
       compile project(':react-native-version-upgrade-check')
   	```
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNVersionUpgradeCheck.sln` in `node_modules/react-native-version-upgrade-check/windows/RNVersionUpgradeCheck.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Version.Upgrade.Check.RNVersionUpgradeCheck;` to the usings at the top of the file
-  - Add `new RNVersionUpgradeCheckPackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
 ## Usage
 ```javascript
 import RNVersionUpgradeCheck from 'react-native-version-upgrade-check';
 
-// TODO: What to do with the module?
-RNVersionUpgradeCheck;
+const versionData = RNVersionUpgradeCheck.getVersionData()
+
+if(versionData["isFirstLaunch"]) {
+	// this is the first launch of your app
+}
+else if (versionData["isUpdated"]){
+	// version was updated
+}
+else if (versionData["isSameVersion"]){
+	// same version as before
+}
 ```
   
