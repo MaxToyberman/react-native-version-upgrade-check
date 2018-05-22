@@ -38,16 +38,20 @@
 ```javascript
 import RNVersionUpgradeCheck from 'react-native-version-upgrade-check';
 
-const versionData = RNVersionUpgradeCheck.getVersionData()
+RNVersionUpgradeCheck.getVersionData(versionData => {
 
-if(versionData["isFirstLaunch"]) {
+	if(versionData["isFirstLaunch"]) {
 	// this is the first launch of your app
-}
-else if (versionData["isUpdated"]){
-	// version was updated
-}
-else if (versionData["isSameVersion"]){
-	// same version as before
-}
+	}
+	else if (versionData["isUpdated"]){
+		// version was updated
+	}
+	else if (versionData["isSameVersion"]){
+		// same version as before
+	}
+
+})
+
+
 ```
   
