@@ -52,11 +52,11 @@ public class RNVersionUpgradeCheckModule extends ReactContextBaseJavaModule {
 
         WritableMap map = Arguments.createMap();
         if (isFirstInstall()) {
-            map.putBoolean("firstLaunch", true);
+            map.putBoolean("isFirstLaunch", true);
         } else if (isInstallFromUpdate()) {
             map.putBoolean("isUpdated", true);
         } else {
-            map.putBoolean("sameVersion", true);
+            map.putBoolean("isSameVersion", true);
         }
 
         callback.invoke(map);

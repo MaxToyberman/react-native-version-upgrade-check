@@ -24,11 +24,11 @@ RCT_EXPORT_METHOD(getVersionData:(RCTResponseSenderBlock)callback) {
         
         [defaults setObject:currentAppVersion forKey:@"appVersion"];
         [defaults synchronize];
-        [dict setObject:[NSNumber numberWithBool:YES] forKey:@"firstLaunch"];
+        [dict setObject:[NSNumber numberWithBool:YES] forKey:@"isFirstLaunch"];
 
     } else if ([previousVersion isEqualToString:currentAppVersion]) {
         // same version
-        [dict setObject:[NSNumber numberWithBool:YES] forKey:@"sameVersion"];
+        [dict setObject:[NSNumber numberWithBool:YES] forKey:@"isSameVersion"];
 
     } else {
         // other version
