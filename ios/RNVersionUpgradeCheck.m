@@ -20,6 +20,12 @@ RCT_EXPORT_METHOD(getVersionData:(RCTResponseSenderBlock)callback) {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 
     
+    NSString *provisionPath = [[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:provisionPath]) {
+        // Appstore version
+        [dict setObject:[NSNumber numberWithBool:YES] forKey:@"isStoreVersion"];
+    }
+
     if (!previousVersion) {
         
         [defaults setObject:currentAppVersion forKey:@"appVersion"];

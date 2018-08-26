@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-version-upgrade-check",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "keywords": [
     "react-native"
   ],
-  "author": "",
+  "author": "Max Toyberman",
   "license": "",
   "peerDependencies": {
     "react-native": "^0.41.2"

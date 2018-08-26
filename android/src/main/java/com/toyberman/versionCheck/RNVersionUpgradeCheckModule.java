@@ -47,10 +47,21 @@ public class RNVersionUpgradeCheckModule extends ReactContextBaseJavaModule {
         }
     }
 
+    public boolean isStoreVersion() {
+        // A list with valid installers package name
+        List<String> validInstallers = new ArrayList<>(Arrays.asList("com.android.vending", "com.google.android.feedback"));
+        // The package name of the app that has installed your app
+        final String installer = this.getPackageManager().getInstallerPackageName(getPackageName());
+        return installer != null && validInstallers.contains(installer);
+    }
+
     @ReactMethod
     public void getVersionData(Callback callback) {
 
         WritableMap map = Arguments.createMap();
+
+        map.putBoolean("isStoreVersion", isStoreVersion());
+
         if (isFirstInstall()) {
             map.putBoolean("isFirstLaunch", true);
         } else if (isInstallFromUpdate()) {

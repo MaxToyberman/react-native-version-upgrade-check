@@ -40,6 +40,10 @@ import RNVersionUpgradeCheck from 'react-native-version-upgrade-check';
 
 RNVersionUpgradeCheck.getVersionData(versionData => {
 
+	if(versionData["isStoreVersion"]) {
+		// the version is from appstore or play store
+	}
+
 	if(versionData["isFirstLaunch"]) {
 	// this is the first launch of your app
 	}
