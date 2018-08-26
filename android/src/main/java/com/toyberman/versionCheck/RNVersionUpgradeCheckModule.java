@@ -51,7 +51,7 @@ public class RNVersionUpgradeCheckModule extends ReactContextBaseJavaModule {
         // A list with valid installers package name
         List<String> validInstallers = new ArrayList<>(Arrays.asList("com.android.vending", "com.google.android.feedback"));
         // The package name of the app that has installed your app
-        final String installer = this.getPackageManager().getInstallerPackageName(getPackageName());
+        final String installer = this.reactContext.getPackageManager().getInstallerPackageName(getPackageName());
         return installer != null && validInstallers.contains(installer);
     }
 
