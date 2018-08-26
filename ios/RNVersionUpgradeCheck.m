@@ -20,11 +20,18 @@ RCT_EXPORT_METHOD(getVersionData:(RCTResponseSenderBlock)callback) {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 
     
-    NSString *provisionPath = [[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:provisionPath]) {
-        // Appstore version
-        [dict setObject:[NSNumber numberWithBool:YES] forKey:@"isStoreVersion"];
-    }
+    #if TARGET_OS_SIMULATOR
+        [dict setObject:[NSNumber numberWithBool:NO] forKey:@"isStoreVersion"];
+    #else
+        // MobilePovision profiles are a clear indicator for Ad-Hoc distribution
+        BOOL hasEmbeddedMobileProvision = !![[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"];
+        if(hasEmbeddedMobileProvision) {
+            [dict setObject:[NSNumber numberWithBool:NO] forKey:@"isStoreVersion"];
+        }
+        else{
+            [dict setObject:[NSNumber numberWithBool:YES] forKey:@"isStoreVersion"];
+        }
+    #endif
 
     if (!previousVersion) {
         
