@@ -1,8 +1,8 @@
 
 {
   "name": "react-native-version-upgrade-check",
-  "version": "1.0.7",
-  "description": "",
+  "version": "1.0.8",
+  "description": "detect version upgrade changes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
