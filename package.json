@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-version-upgrade-check",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "detect version upgrade changes",
   "main": "index.js",
   "scripts": {
