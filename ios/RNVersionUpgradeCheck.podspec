@@ -9,16 +9,14 @@ s.name         =  package['name']
 
   s.homepage     = package['homepage']
   s.license      = package['license']
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "author" => "author@domain.cn" }
+  s.author             = package['author']
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/RNVersionUpgradeCheck.git", :tag => "master" }
+  s.source       = { :git => "https://github.com/MaxToyberman/react-native-version-upgrade-check.git", :tag => "master" }
   s.source_files  = "RNVersionUpgradeCheck/**/*.{h,m}"
   s.requires_arc = true
 
 
   s.dependency "React"
-  #s.dependency "others"
 
 end
 
